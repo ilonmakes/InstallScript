@@ -40,11 +40,8 @@ sudo apt-get install ssh -y
 #Установка flameshot
 sudo apt-get install flameshot -y
 #Установка Anydesk
-sudo sh -c 'echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk.list'
-$ cat /etc/apt/sources.list.d/anydesk.list
-deb http://deb.anydesk.com/ all main
-sudo apt update
-sudo apt install anydesk
-
+sudo apt install flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub com.anydesk.Anydesk
 echo "AnyDesk установлен"
 
