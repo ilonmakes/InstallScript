@@ -12,8 +12,13 @@ sudo sed -i 's/archive.ubuntu.com/mirror.yandex.ru/g' /etc/apt/sources.list.d/of
 sudo sed -i 's|packages.linuxmint.com|mirror.yandex.ru/linuxmint-packages|g' /etc/apt/sources.list.d/official-package-repositories.list
 sudo apt update -y && sudo apt upgrade -y
 #Установка пакета masterPDF
-https://allynelectronics.com/Mint/MasterPdfEditor/master-pdf-editor-4.2.70_qt5.amd64.deb
-sudo apt install ./master-pdf-editor-4.2.70_qt5.amd64.deb
+FILE=./google-chrome-stable_current_amd64.deb
+if [ -f "$FILE" ]; then
+    sudo apt install ./master-pdf-editor-4.2.70_qt5.amd64.deb -y
+else
+    wget https://allynelectronics.com/Mint/MasterPdfEditor/master-pdf-editor-4.2.70_qt5.amd64.deb
+    sudo apt install ./master-pdf-editor-4.2.70_qt5.amd64.deb -y
+fi
 sudo apt install libxml2:i386 libstdc++6:i386
 #Установка snap магазина
 sudo rm /etc/apt/preferences.d/nosnap.pref
@@ -37,3 +42,4 @@ cd /etc/lightdm/
 sudo echo "[Seat:*]" | sudo tee --append /etc/lightdm/lightdm.conf
 sudo echo "greeter-show-manual-login=true" | sudo tee --append /etc/lightdm/lightdm.conf
 sudo systemctl restart lightdm
+

@@ -25,14 +25,6 @@ else
 fi
 #Установка pdfsam (редактор PDF)
 sudo apt-get -y install pdfsam
-#Установка Teamviewer
-FILE=./teamviewer_amd64.deb
-if [ -f "$FILE" ]; then
-    sudo apt install ./teamviewer_amd64.deb -y
-else 
-    wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
-    sudo apt install ./teamviewer_amd64.deb
-fi
 #Установка СБИС
 FILE=./sbis3plugin-setup
 if [ -f "$FILE" ]; then
@@ -48,4 +40,11 @@ sudo apt-get install ssh -y
 #Установка flameshot
 sudo apt-get install flameshot -y
 #Установка Anydesk
-flatpak install flathub com.anydesk.Anydesk
+sudo sh -c 'echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk.list'
+$ cat /etc/apt/sources.list.d/anydesk.list
+deb http://deb.anydesk.com/ all main
+sudo apt update
+sudo apt install anydesk
+
+echo "AnyDesk установлен"
+
