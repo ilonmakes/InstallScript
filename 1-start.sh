@@ -12,7 +12,7 @@ sudo sed -i 's/archive.ubuntu.com/mirror.yandex.ru/g' /etc/apt/sources.list.d/of
 sudo sed -i 's|packages.linuxmint.com|mirror.yandex.ru/linuxmint-packages|g' /etc/apt/sources.list.d/official-package-repositories.list
 sudo apt update -y && sudo apt upgrade -y
 #Установка пакета masterPDF
-FILE=./google-chrome-stable_current_amd64.deb
+FILE=./master-pdf-editor-4.2.70_qt5.amd64.deb
 if [ -f "$FILE" ]; then
     sudo apt install ./master-pdf-editor-4.2.70_qt5.amd64.deb -y
 else
